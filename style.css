@@ -1,0 +1,473 @@
+:root {
+  --primary: #b6895b;
+  --bg: #010101;
+  --teknik: #0d05ee;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background-image: url(UTM-1024x542.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.4rem 7%;
+  background-color: rgba(1, 1, 1, 0.8);
+  border-bottom: 1px solid #513c28;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9999;
+}
+
+.navbar .navbar-logo {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  font-style: italic;
+}
+
+.navbar .navbar-logo span {
+  color: var(--teknik);
+}
+
+.navbar .navbar-nav a {
+  color: #fff;
+  display: inline-block;
+  font-size: 1.3rem;
+  margin: 0 1rem;
+}
+
+.navbar .navbar-nav a:hover {
+  color: var(--teknik);
+}
+
+.navbar .navbar-nav a::after {
+  content: '';
+  display: block;
+  padding-bottom: 0.5rem;
+  border-bottom: 0.1rem solid var(--teknik);
+  transform: scaleX(0);
+  transition: 0.2s linear;
+}
+
+.navbar .navbar-nav a:hover::after {
+  transform: scaleX(0.5);
+}
+
+.navbar .navbar-extra a {
+  color: #fff;
+}
+
+.navbar .navbar-extra a:hover {
+  color: var(--teknik);
+}
+
+#menu {
+  display: none;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.main {
+  width: 800px;
+  height: 500px;
+  background-color: rgba(226, 229, 229, 0.973);
+  margin: 0 auto;
+  margin-top: 58px;
+  padding-top: 60px;
+  border-radius: 10px;
+  border: 1px solid #eeeeee;
+}
+
+.dark .main {
+  background-color: rgba(1, 1, 1, 0.805);
+  border: 1px solid #000000;
+}
+
+.img {
+  background-image: url(WhatsApp\ Image\ 2024-08-20\ at\ 20.27.02.jpeg);
+  background-color: #eaeaea;
+  background-size: cover;
+  border-radius: 100px;
+  width: 160px;
+  height: 160px;
+  margin: 0 auto;
+  border: 5.5px solid #000000b6;
+}
+
+.dark .img {
+  border: 5.5px solid #eaeaead8;
+  background-image: url(image/AhmadHadi.jpg);
+}
+
+h1 {
+  text-align: center;
+  font-size: 35px;
+  margin: 0;
+  font-weight: bold;
+  color: #6944ff;
+  font-family: cursive;
+}
+
+.text {
+  text-align: center;
+  padding-top: 8px;
+  font-size: 18px;
+  margin: 0;
+  color: #324e63;
+}
+
+.dark .text {
+  color: #fff;
+}
+
+p {
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 500px;
+  height: auto;
+  color: #324e63;
+}
+
+.dark p {
+  color: #a3a3a3;
+}
+
+/* Media Queries */
+
+/* Laptop */
+@media (max-width: 1366px) {
+  html {
+    font-size: 75%;
+  }
+
+  .main {
+    width: 700px;
+    height: 450px;
+  }
+
+  p {
+    width: 450px;
+  }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+  html {
+    font-size: 62.5%;
+  }
+
+  #menu {
+    display: inline-block;
+  }
+
+  .navbar .navbar-nav {
+    position: absolute;
+    top: 100%;
+    right: -100%;
+    background-color: #fff;
+    width: 30rem;
+    height: 100vh;
+    transition: 0.3s;
+  }
+
+  .navbar .navbar-nav.active {
+    right: 0;
+  }
+
+  .navbar .navbar-nav a {
+    color: var(--bg);
+    display: block;
+    margin: 1.5rem;
+    padding: 0.5rem;
+    font-size: 2rem;
+  }
+
+  .navbar .navbar-nav a::after {
+    transform-origin: 0 0;
+  }
+
+  .navbar .navbar-nav a:hover::after {
+    transform: scaleX(0.2);
+  }
+
+  .main {
+    width: 100%;
+    height: auto;
+    padding: 20px;
+    margin-top: 80px;
+  }
+
+  p {
+    width: 100%;
+    padding: 0 20px;
+  }
+}
+
+/* Phone */
+@media (max-width: 450px) {
+  html {
+    font-size: 55%;
+  }
+
+  .navbar .navbar-logo {
+    font-size: 1.6rem;
+  }
+
+  .navbar .navbar-nav a {
+    font-size: 1.8rem;
+    margin: 1rem;
+  }
+
+  .main {
+    width: 100%;
+    height: auto;
+    padding: 15px;
+    margin-top: 100px;
+  }
+
+  p {
+    width: 100%;
+    padding: 0 10px;
+  }
+
+  h1 {
+    font-size: 30px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .img {
+    width: 120px;
+    height: 120px;
+    border-radius: 60px;
+  }
+}
+
+
+/* 
+1. Global Styles (:root, *, body)
+:root
+
+Mengatur variabel CSS global yang dapat digunakan di seluruh stylesheet.
+--primary: Warna primer (#b6895b).
+--bg: Warna latar belakang utama (#010101).
+--teknik: Warna khusus (#0d05ee), digunakan untuk elemen yang ingin diberi penekanan atau warna aksen.
+* (Universal Selector)
+
+Berlaku untuk semua elemen HTML.
+margin, padding: Menghilangkan jarak dan ruang kosong default pada semua elemen.
+box-sizing: border-box: Memastikan padding dan border dihitung sebagai bagian dari ukuran elemen, bukan ditambahkan ke ukuran elemen.
+outline, border: Menghapus garis luar dan batas default pada semua elemen.
+text-decoration: none: Menghilangkan dekorasi teks seperti garis bawah pada link.
+body
+
+Mengatur tampilan dasar untuk seluruh halaman.
+font-family: 'Poppins', sans-serif: Menentukan font yang digunakan pada halaman, dalam hal ini "Poppins".
+color: #fff: Warna teks default adalah putih.
+background-image: Mengatur gambar latar belakang.
+background-repeat: no-repeat: Mencegah pengulangan gambar latar.
+background-size: cover: Memastikan gambar latar menutupi seluruh layar.
+background-position: center: Memposisikan gambar latar di tengah halaman.
+2. Navbar (Navigasi)
+.navbar
+
+Kontainer utama untuk navigasi (navbar).
+display: flex: Mengatur elemen di dalam navbar menjadi baris dengan flexbox.
+justify-content: space-between: Membuat elemen di dalam navbar tersebar antara kiri dan kanan.
+align-items: center: Menyelaraskan elemen secara vertikal di tengah navbar.
+padding: 1.4rem 7%: Memberi ruang di dalam navbar dengan padding.
+background-color: rgba(1, 1, 1, 0.8): Warna latar belakang hitam dengan transparansi 80%.
+border-bottom: 1px solid #513c28: Menambahkan garis bawah di navbar.
+position: fixed: Menjaga navbar tetap di bagian atas halaman ketika di-scroll.
+top, left, right: 0: Memastikan navbar berada di bagian paling atas dan lebar penuh.
+z-index: 9999: Memastikan navbar berada di lapisan teratas.
+.navbar-logo
+
+Mengatur gaya logo atau nama di navbar.
+font-size: 2rem: Ukuran font besar (2rem).
+font-weight: 700: Ketebalan font diatur ke nilai maksimal (bold).
+color: #fff: Warna logo adalah putih.
+font-style: italic: Memberi gaya italic pada teks logo.
+.navbar-logo span
+
+Mengatur gaya tambahan pada elemen span di dalam logo.
+color: var(--teknik): Menggunakan warna dari variabel --teknik.
+.navbar-nav a
+
+Mengatur gaya link navigasi.
+color: #fff: Warna teks link adalah putih.
+display: inline-block: Menyusun link dalam satu baris.
+font-size: 1.3rem: Ukuran font link adalah 1.3rem.
+margin: 0 1rem: Menambahkan jarak antara link.
+.navbar-nav a:hover
+
+Mengatur gaya link saat di-hover.
+color: var(--teknik): Mengubah warna link menjadi warna --teknik saat di-hover.
+.navbar-nav a::after
+
+Pseudo-element untuk membuat efek underline.
+content: '': Tidak ada teks tambahan.
+display: block: Menampilkan elemen sebagai blok.
+padding-bottom: 0.5rem: Menambah jarak ke bawah sebelum garis.
+border-bottom: 0.1rem solid var(--teknik): Menambahkan garis bawah dengan warna --teknik.
+transform: scaleX(0): Garis bawah tidak terlihat (skala horizontal 0).
+transition: 0.2s linear: Memberikan efek transisi pada garis.
+.navbar-nav a:hover::after
+
+Mengatur garis bawah untuk tampil saat link di-hover.
+transform: scaleX(0.5): Garis bawah meluas menjadi 50% dari lebar link saat di-hover.
+.navbar-extra a
+
+Mengatur gaya tambahan untuk link di luar navigasi utama.
+color: #fff: Warna link tambahan adalah putih.
+.navbar-extra a:hover
+
+Mengatur warna link tambahan saat di-hover.
+color: var(--teknik): Warna link berubah menjadi warna --teknik.
+#menu
+
+Mengatur tampilan menu (untuk tampilan mobile).
+display: none: Menu tidak ditampilkan secara default.
+3. Hero Section
+.hero
+
+Kontainer untuk bagian hero (bagian depan utama halaman).
+min-height: 100vh: Tinggi minimum hero adalah 100% dari tinggi viewport (layar).
+display: flex: Mengatur konten di dalam hero menggunakan flexbox.
+align-items: center: Menyelaraskan konten di tengah vertikal.
+.img
+
+Mengatur gaya untuk gambar profil atau elemen gambar lainnya.
+display: flex: Menggunakan flexbox untuk menempatkan gambar di tengah.
+justify-content: center: Menyelaraskan gambar di tengah secara horizontal.
+align-items: center: Menyelaraskan gambar di tengah secara vertikal.
+width: 200px: Lebar gambar 200px.
+.main
+
+Kontainer utama untuk teks dan elemen di dalam hero.
+width: 800px: Lebar kontainer 800px.
+height: 500px: Tinggi kontainer 500px.
+background-color: rgba(226, 229, 229, 0.868): Warna latar belakang dengan transparansi.
+margin: 0 auto: Kontainer berada di tengah secara horizontal.
+margin-top: 58px: Jarak atas kontainer dari navbar 58px.
+padding-top: 60px: Padding atas di dalam kontainer 60px.
+border-radius: 10px: Sudut kontainer dibuat melengkung dengan radius 10px.
+border: 1px solid #eeeeee: Kontainer diberi garis pinggir abu-abu terang.
+.dark .main
+
+Gaya alternatif untuk mode gelap.
+background-color: rgba(1, 1, 1, 0.805): Warna latar belakang hitam dengan transparansi.
+border: 1px solid #000000: Garis pinggir berwarna hitam.
+.img (lagi)
+
+Pengaturan gambar profil dengan latar abu-abu dan ukuran tertentu.
+background-image: url(image/2190.JPG): Gambar latar belakang untuk elemen img.
+background-color: #eaeaea: Warna latar belakang abu-abu muda.
+background-size: cover: Gambar mengisi seluruh area elemen img.
+border-radius: 100px: Membuat gambar menjadi bulat.
+width: 160px: Lebar gambar 160px.
+height: 160px: Tinggi gambar 160px.
+margin: 0 auto: Gambar berada di tengah secara horizontal.
+border: 5.5px solid #000000b6: Gambar diberi border hitam tebal.
+.dark .img
+
+Gaya untuk gambar di mode gelap.
+border: 5.5px solid #eaeaead8: Border ber */
+
+/* family: cursive: Menggunakan font dengan gaya tulisan tangan (cursive).
+.text
+
+Mengatur gaya teks tambahan di bawah heading.
+text-align: center: Menyelaraskan teks di tengah secara horizontal.
+padding-top: 8px: Menambahkan jarak antara teks dengan elemen sebelumnya.
+font-size: 18px: Ukuran font untuk teks biasa (18px).
+margin: 0: Menghilangkan margin default.
+color: #324e63: Warna teks abu-abu kebiruan.
+.dark .text
+
+Gaya teks untuk mode gelap.
+color: #fff: Mengubah warna teks menjadi putih.
+p
+
+Mengatur gaya paragraf teks.
+margin: 0 auto: Mengatur paragraf di tengah secara horizontal.
+padding-top: 20px: Menambahkan jarak antara paragraf dengan elemen sebelumnya.
+width: 500px: Lebar paragraf 500px.
+height: auto: Tinggi paragraf disesuaikan dengan konten.
+color: #324e63: Warna teks abu-abu kebiruan.
+.dark p
+
+Gaya paragraf untuk mode gelap.
+color: #a3a3a3: Warna teks menjadi abu-abu terang.
+5. Media Queries
+Media queries digunakan untuk membuat halaman menjadi responsif dan menyesuaikan dengan berbagai ukuran layar:
+
+@media (max-width: 1366px)
+
+Untuk layar dengan lebar maksimal 1366px (biasanya laptop).
+html { font-size: 75%; }: Mengurangi ukuran font dasar menjadi 75%.
+.main { width: 700px; height: 450px; }: Mengurangi lebar dan tinggi kontainer main.
+p { width: 450px; }: Mengurangi lebar paragraf menjadi 450px.
+@media (max-width: 768px)
+
+Untuk layar dengan lebar maksimal 768px (tablet).
+html { font-size: 62.5%; }: Mengurangi ukuran font dasar menjadi 62.5%.
+#menu { display: inline-block; }: Menampilkan menu untuk tampilan mobile.
+.navbar .navbar-nav:
+position: absolute; top: 100%; right: -100%;: Menempatkan navbar di luar layar.
+background-color: #fff; width: 30rem; height: 100vh;: Mengatur lebar dan tinggi navbar, dengan latar belakang putih.
+transition: 0.3s;: Menambahkan transisi saat navbar masuk atau keluar.
+.navbar .navbar-nav.active { right: 0; }: Mengatur navbar agar muncul di layar saat dalam keadaan aktif.
+.navbar .navbar-nav a:
+color: var(--bg);: Mengubah warna teks menjadi warna latar utama.
+display: block; margin: 1.5rem; padding: 0.5rem; font-size: 2rem;: Mengatur link menjadi blok dengan margin, padding, dan ukuran font besar.
+.navbar .navbar-nav a::after:
+transform-origin: 0 0;: Mengubah titik asal transformasi menjadi sudut kiri atas.
+.navbar .navbar-nav a:hover::after:
+transform: scaleX(0.2);: Mengubah garis bawah menjadi lebih pendek saat di-hover.
+.main { width: 100%; height: auto; padding: 20px; margin-top: 80px; }: Mengatur kontainer main agar penuh di layar dengan padding dan margin yang disesuaikan.
+p { width: 100%; padding: 0 20px; }: Paragraf menyesuaikan lebar layar dengan padding samping.
+@media (max-width: 450px)
+
+Untuk layar dengan lebar maksimal 450px (ponsel).
+html { font-size: 55%; }: Mengurangi ukuran font dasar menjadi 55%.
+.navbar .navbar-logo { font-size: 1.6rem; }: Mengurangi ukuran font logo navbar.
+.navbar .navbar-nav a { font-size: 1.8rem; margin: 1rem; }: Mengatur link navbar agar lebih kecil dan lebih padat.
+.main { width: 100%; height: auto; padding: 15px; margin-top: 100px; }: Kontainer main disesuaikan untuk layar kecil dengan padding dan margin yang lebih kecil.
+p { width: 100%; padding: 0 10px; }: Paragraf menyesuaikan lebar layar dengan padding samping yang lebih kecil.
+h1 { font-size: 30px; }: Mengurangi ukuran font untuk heading h1.
+.text { font-size: 16px; }: Mengurangi ukuran font untuk teks tambahan.
+.img { width: 120px; height: 120px; border-radius: 60px; }: Mengurangi ukuran gambar dan radius border untuk tampilan ponsel. */

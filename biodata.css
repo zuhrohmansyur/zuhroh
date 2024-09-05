@@ -1,0 +1,268 @@
+:root {
+    --primary: #b6895b;
+    --bg-light: #f0f0f0;
+    --bg-dark: #121212;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --accent: #0d05ee;
+    --card-bg-light: #ffffff;
+    --card-bg-dark: #1e1e1e;
+    --card-text-light: #000000;
+    --card-text-dark: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.7);
+    --shadow-dark: rgba(255, 255, 255, 0.2);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  body.dark {
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    transition: background-color 0.5s ease;
+  }
+  
+  .navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  
+  .navbar .navbar-logo span {
+    color: var(--accent);
+  }
+  
+  .navbar .navbar-nav a {
+    color: var(--text-light);
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+    position: relative;
+    transition: color 0.5s ease;
+  }
+  
+  .navbar .navbar-nav a:hover {
+    color: var(--accent);
+  }
+  
+  .navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  .navbar .navbar-nav a:hover::after {
+    width: 100%;
+  }
+  
+  .navbar .navbar-extra a {
+    color: var(--text-light);
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: color 0.5s ease;
+  }
+  
+  .navbar .navbar-extra a:hover {
+    color: var(--accent);
+  }
+  
+  #menu {
+    display: none;
+  }
+  
+  /* CSS untuk menampilkan card dengan teks di samping foto */
+  .angkatan {
+    margin: 120px 25px 25px 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dua kolom */
+    gap: 20px;
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  body.dark .angkatan {
+    background-color: var(--bg-dark);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+  }
+  
+  .card {
+    display: flex; /* Menggunakan flexbox untuk layout horizontal */
+    background-color: var(--card-bg-light);
+    color: var(--card-text-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  body.dark .card {
+    background-color: var(--card-bg-dark);
+    color: var(--card-text-dark);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+  }
+  
+  .card-img-top {
+    width: 40%; 
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%; /* Sisa ruang untuk teks */
+  }
+  
+  .card-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family:cursive;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family:'Poppins', sans-serif;
+  }
+  
+  /* media queris */
+  
+  
+  /* Responsiveness */
+  
+  /* Laptop */
+  @media (max-width: 1366px) {
+    html {
+      font-size: 75%;
+    }
+  }
+  
+  /* Tablet */
+  @media (max-width: 768px) {
+    html {
+      font-size: 62.5%;
+    }
+    
+    #menu {
+      display: inline-block;
+    }
+    
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: var(--bg-light);
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+    
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+    
+    .navbar .navbar-nav a {
+      color: var(--bg-dark);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+    
+    .navbar .navbar-nav a::after {
+      transform-origin: 0 0;
+    }
+    
+    .navbar .navbar-nav a:hover::after {
+      transform: scaleX(0.2);
+    }
+    
+    /* Card Styles for Tablet */
+    .angkatan {
+      grid-template-columns: 1fr; /* Single column */
+      gap: 10px;
+      padding: 15px;
+    }
+    
+    .card {
+      flex-direction: column;
+    }
+    
+    .card-img-top {
+      width: 100%;
+    }
+    
+    .card-body {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
+  /* Phone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+    
+    /* Navbar and Card Adjustments for Small Screens */
+    .navbar .navbar-logo {
+      font-size: 1.6rem;
+    }
+    
+    .navbar .navbar-nav a {
+      font-size: 1.8rem;
+      margin: 1rem;
+    }
+    
+    .angkatan {
+      margin: 80px 15px 15px 15px;
+      padding: 10px;
+    }
+    
+    .card-title {
+      font-size: 1.8rem;
+    }
+    
+    .card-text {
+      font-size: 1rem;
+    }
+  }

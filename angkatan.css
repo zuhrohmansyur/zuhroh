@@ -1,0 +1,371 @@
+:root {
+    --primary: #b6895b;
+    --bg-light: #f0f0f0;
+    --bg-dark: #121212;
+    --text-light: #ffffff;
+    --text-dark: #000000;
+    --accent: #0d05ee;
+    --card-bg-light: #ffffff;
+    --card-bg-dark: #1e1e1e;
+    --card-text-light: #000000;
+    --card-text-dark: #ffffff;
+    --shadow-light: rgba(0, 0, 0, 0.2);
+    --shadow-dark: rgba(255, 255, 255, 0.2);
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    background-color: var(--bg-light);
+    transition: background-color 0.5s ease, color 0.5s ease;
+  }
+  
+  body.dark {
+    color: var(--text-light);
+    background-color: var(--bg-dark);
+  }
+  
+  /* Navbar */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.4rem 7%;
+    background-color: var(--bg-dark);
+    border-bottom: 1px solid var(--primary);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+    transition: background-color 0.5s ease;
+  }
+  
+  .navbar .navbar-logo {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-light);
+    font-style: italic;
+  }
+  
+  .navbar .navbar-logo span {
+    color: var(--accent);
+  }
+  
+  .navbar .navbar-nav a {
+    color: var(--text-light);
+    display: inline-block;
+    font-size: 1.3rem;
+    margin: 0 1rem;
+    position: relative;
+    transition: color 0.5s ease;
+  }
+  
+  .navbar .navbar-nav a:hover {
+    color: var(--accent);
+  }
+  
+  .navbar .navbar-nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background-color: var(--accent);
+    transition: width 0.3s ease;
+  }
+  
+  .navbar .navbar-nav a:hover::after {
+    width: 100%;
+  }
+  
+  .navbar .navbar-extra a {
+    color: var(--text-light);
+    margin-left: 1rem;
+    cursor: pointer;
+    transition: color 0.5s ease;
+  }
+  
+  .navbar .navbar-extra a:hover {
+    color: var(--accent);
+  }
+  
+  #menu {
+    display: none;
+  }
+  
+  /* CSS untuk menampilkan card dengan teks di samping foto */
+  .angkatan {
+    margin: 120px 25px 25px 25px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 20px;
+    background-color: var(--bg-light);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  body.dark .angkatan {
+    background-color: var(--bg-dark);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+  }
+  
+  .card {
+    display: flex; 
+    background-color: var(--card-bg-light);
+    color: var(--card-text-light);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px var(--shadow-light);
+    transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;
+  }
+  
+  body.dark .card {
+    background-color: var(--card-bg-dark);
+    color: var(--card-text-dark);
+    box-shadow: 0 4px 8px var(--shadow-dark);
+  }
+  
+  .card-img-top {
+    width: 40%; 
+    height: auto;
+    object-fit: cover;
+  }
+  
+  .card-body {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 60%; 
+  }
+  
+  .card-title {
+    font-size: 2.1rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-family:cursive;
+  }
+  
+  .card-text {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    font-family:'Poppins', sans-serif;
+  }
+  
+  /* media queris */
+  
+  
+  /* Laptop */
+  @media (max-width: 1366px) {
+    html {
+      font-size: 75%;
+    }
+  }
+  
+  /* Tablet */
+  @media (max-width: 768px) {
+    html {
+      font-size: 62.5%;
+    }
+    
+    #menu {
+      display: inline-block;
+    }
+    
+    .navbar .navbar-nav {
+      position: absolute;
+      top: 100%;
+      right: -100%;
+      background-color: var(--bg-light);
+      width: 30rem;
+      height: 100vh;
+      transition: 0.3s;
+    }
+    
+    .navbar .navbar-nav.active {
+      right: 0;
+    }
+    
+    .navbar .navbar-nav a {
+      color: var(--bg-dark);
+      display: block;
+      margin: 1.5rem;
+      padding: 0.5rem;
+      font-size: 2rem;
+    }
+    
+    .navbar .navbar-nav a::after {
+      transform-origin: 0 0;
+    }
+    
+    .navbar .navbar-nav a:hover::after {
+      transform: scaleX(0.2);
+    }
+    
+    /* Card Styles for Tablet */
+    .angkatan {
+      grid-template-columns: 1fr; /* Single column */
+      gap: 10px;
+      padding: 15px;
+    }
+    
+    .card {
+      flex-direction: column;
+    }
+    
+    .card-img-top {
+      width: 100%;
+    }
+    
+    .card-body {
+      width: 100%;
+      padding: 15px;
+    }
+  }
+  
+  /* Phone */
+  @media (max-width: 450px) {
+    html {
+      font-size: 55%;
+    }
+  
+    .navbar .navbar-logo {
+      font-size: 1.6rem;
+    }
+    
+    .navbar .navbar-nav a {
+      font-size: 1.8rem;
+      margin: 1rem;
+    }
+    
+    .angkatan {
+      margin: 80px 15px 15px 15px;
+      padding: 10px;
+    }
+    
+    .card-title {
+      font-size: 1.8rem;
+    }
+    
+    .card-text {
+      font-size: 1rem;
+    }
+  }
+
+  /* :root adalah selector CSS yang merepresentasikan elemen paling atas dari dokumen (biasanya <html>). Ini digunakan untuk mendefinisikan variabel CSS yang bisa digunakan di seluruh dokumen.
+Variabel CSS:
+--primary: Warna utama (dalam hal ini #b6895b, warna coklat muda).
+--bg-light: Warna latar belakang untuk mode terang (#f0f0f0, abu-abu sangat terang).
+--bg-dark: Warna latar belakang untuk mode gelap (#121212, hampir hitam).
+--text-light: Warna teks untuk mode terang (#ffffff, putih).
+--text-dark: Warna teks untuk mode gelap (#000000, hitam).
+--accent: Warna aksen (#0d05ee, biru cerah).
+--card-bg-light: Warna latar belakang kartu untuk mode terang (#ffffff, putih).
+--card-bg-dark: Warna latar belakang kartu untuk mode gelap (#1e1e1e, abu-abu gelap).
+--card-text-light: Warna teks kartu untuk mode terang (#000000, hitam).
+--card-text-dark: Warna teks kartu untuk mode gelap (#ffffff, putih).
+--shadow-light: Warna bayangan untuk mode terang (hitam transparan).
+--shadow-dark: Warna bayangan untuk mode gelap (putih transparan).
+2. Global Styles
+* (Universal Selector):
+Menerapkan gaya ke semua elemen.
+margin: 0; padding: 0;: Menghapus margin dan padding default.
+box-sizing: border-box;: Mengatur box-sizing sehingga padding dan border tidak menambah ukuran elemen.
+outline: none; border: none;: Menghilangkan outline dan border default.
+text-decoration: none;: Menghilangkan dekorasi teks seperti garis bawah pada link.
+transition: all 0.3s ease;: Menambahkan transisi halus untuk semua perubahan properti.
+3. Body
+font-family: 'Poppins', sans-serif;: Mengatur font dasar menggunakan "Poppins", dengan alternatif sans-serif.
+
+color: var(--text-dark);: Warna teks default adalah warna gelap.
+
+background-color: var(--bg-light);: Warna latar belakang default adalah warna terang.
+
+transition: background-color 0.5s ease, color 0.5s ease;: Menambahkan transisi halus saat warna latar belakang atau warna teks berubah.
+
+body.dark: Menyesuaikan gaya untuk mode gelap.
+
+color: var(--text-light);: Mengubah warna teks menjadi terang.
+background-color: var(--bg-dark);: Mengubah warna latar belakang menjadi gelap.
+4. Navbar
+.navbar:
+
+display: flex; justify-content: space-between; align-items: center;: Mengatur navbar menggunakan flexbox dengan konten yang diratakan di antara dua sisi.
+padding: 1.4rem 7%;: Memberikan padding di dalam navbar.
+background-color: var(--bg-dark);: Warna latar belakang navbar untuk mode gelap.
+border-bottom: 1px solid var(--primary);: Menambahkan border bawah dengan warna utama.
+position: fixed; top: 0; left: 0; right: 0; z-index: 9999;: Navbar diatur untuk tetap berada di atas halaman dan selalu terlihat.
+transition: background-color 0.5s ease;: Transisi halus saat warna latar belakang navbar berubah.
+.navbar .navbar-logo:
+
+font-size: 2rem; font-weight: 700; color: var(--text-light); font-style: italic;: Mengatur ukuran, tebal, warna, dan gaya font untuk logo navbar.
+.navbar .navbar-logo span:
+
+color: var(--accent);: Warna aksen pada bagian dari logo.
+.navbar .navbar-nav a:
+
+color: var(--text-light);: Warna teks link navbar default adalah warna terang.
+font-size: 1.3rem;: Ukuran font untuk link navbar.
+position: relative; transition: color 0.5s ease;: Mengatur posisi relatif dan transisi warna yang halus.
+.navbar .navbar-nav a:hover:
+
+color: var(--accent);: Mengubah warna teks link navbar menjadi warna aksen saat di-hover.
+.navbar .navbar-nav a::after:
+
+content: ''; display: block; height: 2px; width: 0; background-color: var(--accent); transition: width 0.3s ease;: Menambahkan garis bawah pada link yang berkembang saat di-hover.
+.navbar .navbar-nav a:hover::after:
+
+width: 100%;: Garis bawah menjadi penuh saat di-hover.
+.navbar .navbar-extra a:
+
+Gaya untuk link tambahan di navbar:
+color: var(--text-light); margin-left: 1rem; cursor: pointer; transition: color 0.5s ease;: Mengatur warna, margin, dan transisi warna saat di-hover.
+.navbar .navbar-extra a:hover:
+
+color: var(--accent);: Mengubah warna menjadi warna aksen saat di-hover.
+#menu:
+
+display: none;: Menu default tidak ditampilkan, hanya muncul pada ukuran layar tertentu (diatur dalam media queries).
+5. Card Styles
+.angkatan:
+
+Grid yang menampilkan card:
+margin: 120px 25px 25px 25px;: Mengatur margin di sekitar elemen.
+display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;: Mengatur grid dengan dua kolom dan jarak antar elemen.
+background-color: var(--bg-light); padding: 20px; border-radius: 10px;: Mengatur latar belakang, padding, dan radius sudut elemen.
+box-shadow: 0 4px 8px var(--shadow-light); transition: background-color 0.5s ease, box-shadow 0.5s ease;: Mengatur bayangan dan transisi.
+body.dark .angkatan:
+
+background-color: var(--bg-dark); box-shadow: 0 4px 8px var(--shadow-dark);: Gaya yang diubah saat mode gelap, termasuk latar belakang dan bayangan.
+.card:
+
+display: flex; background-color: var(--card-bg-light); color: var(--card-text-light);: Mengatur tampilan kartu dengan background dan warna teks untuk mode terang.
+border-radius: 20px; overflow: hidden; box-shadow: 0 4px 8px var(--shadow-light);: Radius sudut, bayangan, dan memotong konten yang keluar dari card.
+transition: background-color 0.5s ease, color 0.5s ease, box-shadow 0.5s ease;: Transisi halus saat warna dan bayangan berubah.
+body.dark .card:
+
+background-color: var(--card-bg-dark); color: var(--card-text-dark); box-shadow: 0 4px 8px var(--shadow-dark);: Gaya untuk mode gelap.
+.card-img-top:
+
+width: 40%; height: auto; object-fit: cover;: Gambar diatur agar memenuhi 40% dari lebar card, dan disesuaikan untuk mengisi ruang yang tersedia.
+.card-body:
+
+padding: 20px; display: flex; flex-direction: column; justify-content: center; width: 60%;: Gaya untuk isi card, dengan flexbox yang mengatur konten dalam kolom dan memusatkan teks secara vertikal.
+.card-title:
+
+font-size: 2.1rem; font-weight: 700; margin-bottom: 10px; font-family: cursive;: Mengatur gaya judul card dengan ukuran besar, tebal, dan menggunakan font kursif.
+.card-text:
+
+**`font-size: 1.2rem; line-height: 1.5 */
